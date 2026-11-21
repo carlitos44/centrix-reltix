@@ -2,7 +2,9 @@
 
 MAIN AI Hackathon 2026, reltix track. A resident reports a fault by voice or text to a live ElevenLabs agent; Centrix finds the right contractor through one partner connector, books a slot with the resident's consent, and the report and invoice land in the same case for the building manager.
 
-**Video:** see `media/` (or the link in the submission).
+**Video:** linked in the submission.
+
+![Pitch view: tenant, reltix staff and craftsman side by side](media/pitch-view.png)
 
 ```bash
 echo ELEVENLABS_API_KEY=your_key > .env
