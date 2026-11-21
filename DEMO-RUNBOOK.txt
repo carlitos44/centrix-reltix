@@ -1,0 +1,37 @@
+CENTRIX FINAL RECORDING RUNBOOK
+
+Aim for 2–3 minutes. Use the local Centrix build and synthetic details.
+Start with a clean demo database if you want a new case. The live demo may
+already contain a confirmed booking. Keep existing data by starting on a
+different port with a separate database:
+
+  PORT=5197 CENTRIX_DB=./data/recording-db.json TZ=Europe/Amsterdam node server.mjs
+
+Open http://127.0.0.1:5197. An ElevenLabs agent must already be configured.
+In this local demo, voice and text are live. Contractors, appointment calendars,
+prices, repair work, and invoices are simulated.
+
+1. RESIDENT — Alex Rivera, PIN 2040
+   Start a call. Say: “The living-room radiator is cold. The other radiators
+   work, there’s no leak or immediate danger, and I haven’t damaged it.”
+   Pick an offered slot. Let the agent name the contractor and explain what
+   data will be shared. Then explicitly agree to sharing and booking.
+   Say goodbye. Open Previous requests and show the confirmed appointment.
+
+2. CONTRACTOR — Noor Bakker, PIN 4310
+   Open Voice-agent repair jobs. Select Heizung Müller GmbH.
+   Start repair, then enter: “Replaced the faulty valve and verified heat was
+   restored.” Mark as done and submit a sample invoice in the quoted range.
+
+3. MANAGER — Mira van Dijk, PIN 6200
+   In Requests, expand Case timeline and documents. Show the permission record,
+   completion note, and invoice. This is the final frame.
+
+4. OPTIONAL CONNECTOR PROOF — Jordan Lee, PIN 1070
+   Report the same radiator problem in Céramique Apartments. The assistant
+   offers times from Maas Heat Service instead. The same connector and booking
+   flow handle both contractors. For the alternate queue, pick Maas Heat
+   Service in the contractor’s company dropdown.
+
+For submission, include the recording, docs/CONNECTOR.md, and the project ZIP.
+Run node test/flow.test.mjs to reproduce the two-contractor test.

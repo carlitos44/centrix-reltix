@@ -1,0 +1,405 @@
+{
+  "properties": [
+    {
+      "id": "prop_1",
+      "address": "Wyck Townhouse, 10 Example Lane, Maastricht (fictional)",
+      "postcode": "6221",
+      "building_year": 1972,
+      "heating": "gas central heating",
+      "energy_certificate": {
+        "class": "E",
+        "valid_until": "2029-03-31"
+      },
+      "installations": {
+        "boiler": {
+          "make": "Vaillant",
+          "model": "ecoTEC plus VC 206/5-5",
+          "installed": 2014,
+          "last_service": "2026-03-12",
+          "service_partner": "p_heiz"
+        },
+        "water_pipes": "copper, renewed 2009",
+        "electrics": "rewired 1998, RCD fitted 2015"
+      },
+      "owner_id": "c_101",
+      "manager": "Mira van Dijk"
+    },
+    {
+      "id": "prop_2",
+      "address": "Céramique Apartments, 18 Example Lane, Maastricht (fictional)",
+      "postcode": "6222",
+      "building_year": 1998,
+      "heating": "district heating",
+      "energy_certificate": {
+        "class": "C",
+        "valid_until": "2031-06-30"
+      },
+      "installations": {
+        "heat_transfer_station": {
+          "make": "Danfoss",
+          "installed": 2018,
+          "last_service": "2026-05-04"
+        },
+        "water_pipes": "plastic composite, original 1998",
+        "electrics": "original 1998, RCD fitted"
+      },
+      "owner_id": "c_102",
+      "manager": "Mira van Dijk"
+    }
+  ],
+  "units": [
+    {
+      "id": "unit_4b",
+      "property_id": "prop_1",
+      "label": "A-204 (2nd floor left)",
+      "floor": 2,
+      "size_sqm": 68,
+      "rooms": 3,
+      "meters": [
+        {
+          "type": "electricity",
+          "number": "1ESY1160123456"
+        },
+        {
+          "type": "water",
+          "number": "WZ-88213"
+        }
+      ],
+      "fixtures": [
+        "kitchen sink + mixer tap",
+        "dishwasher (landlord)",
+        "shower, WC, washbasin",
+        "4 radiators with thermostats",
+        "wooden windows 1995"
+      ],
+      "access": "Key safe by the main entrance. Code sent after you accept the job.",
+      "tenant_id": "c_202",
+      "lease_id": "l_202"
+    },
+    {
+      "id": "unit_2a",
+      "property_id": "prop_1",
+      "label": "1st floor right",
+      "floor": 1,
+      "size_sqm": 54,
+      "rooms": 2,
+      "meters": [
+        {
+          "type": "electricity",
+          "number": "1ESY1160123401"
+        }
+      ],
+      "fixtures": [
+        "kitchen sink + mixer tap",
+        "bathtub, WC, washbasin",
+        "3 radiators with thermostats"
+      ],
+      "access": "Tenant at home after 16:00, spare key at property manager",
+      "tenant_id": "c_203",
+      "lease_id": "l_203"
+    },
+    {
+      "id": "unit_3a",
+      "property_id": "prop_1",
+      "label": "2nd floor right",
+      "floor": 2,
+      "size_sqm": 72,
+      "rooms": 3,
+      "meters": [
+        {
+          "type": "electricity",
+          "number": "1ESY1160123477"
+        }
+      ],
+      "fixtures": [
+        "kitchen sink + mixer tap",
+        "shower, WC, washbasin",
+        "4 radiators with thermostats"
+      ],
+      "access": "Key safe by the main entrance. Code sent after you accept the job.",
+      "tenant_id": "c_204",
+      "lease_id": "l_204"
+    },
+    {
+      "id": "unit_01",
+      "property_id": "prop_2",
+      "label": "B-107 (1st floor)",
+      "floor": 1,
+      "size_sqm": 85,
+      "rooms": 3,
+      "meters": [
+        {
+          "type": "electricity",
+          "number": "1ACH2210088812"
+        }
+      ],
+      "fixtures": [
+        "fitted kitchen (landlord)",
+        "shower, WC, washbasin",
+        "underfloor heating",
+        "plastic windows 1998"
+      ],
+      "access": "Tenant works from home, call 30 min before",
+      "tenant_id": "c_205",
+      "lease_id": "l_205"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "c_101",
+      "role": "owner",
+      "name": "Maria Becker",
+      "email": "maria.becker@example.com",
+      "phone": "+49 151 00000101",
+      "preferred_channel": "email"
+    },
+    {
+      "id": "c_102",
+      "role": "owner",
+      "name": "Rhein Wohnen GmbH",
+      "email": "objekte@example.com",
+      "phone": "+49 241 0000102",
+      "preferred_channel": "email"
+    },
+    {
+      "id": "c_202",
+      "role": "tenant",
+      "name": "Alex Rivera",
+      "email": "alex.rivera@example.com",
+      "phone": "+31 43 555 0142",
+      "language": "en",
+      "preferred_channel": "portal",
+      "move_in": "2025-09-01"
+    },
+    {
+      "id": "c_203",
+      "role": "tenant",
+      "name": "Ahmet Yılmaz",
+      "email": "ahmet@example.com",
+      "phone": "+49 151 00000203",
+      "language": "de",
+      "preferred_channel": "whatsapp",
+      "move_in": "2019-04-01"
+    },
+    {
+      "id": "c_204",
+      "role": "tenant",
+      "name": "Sophie Wagner",
+      "email": "sophie@example.com",
+      "phone": "+49 151 00000204",
+      "language": "de",
+      "preferred_channel": "portal",
+      "move_in": "2022-08-01"
+    },
+    {
+      "id": "c_205",
+      "role": "tenant",
+      "name": "Jordan Lee",
+      "email": "jordan.lee@example.com",
+      "phone": "+31 43 555 0168",
+      "language": "en",
+      "preferred_channel": "portal",
+      "move_in": "2026-02-15"
+    }
+  ],
+  "leases": [
+    {
+      "id": "l_202",
+      "unit_id": "unit_4b",
+      "tenant_id": "c_202",
+      "start": "2026-12-01",
+      "rent_cold_eur": 780,
+      "kleinreparatur": {
+        "max_per_item_eur": 100,
+        "max_per_year_eur": 400
+      }
+    },
+    {
+      "id": "l_203",
+      "unit_id": "unit_2a",
+      "tenant_id": "c_203",
+      "start": "2019-04-01",
+      "rent_cold_eur": 590,
+      "kleinreparatur": null
+    },
+    {
+      "id": "l_204",
+      "unit_id": "unit_3a",
+      "tenant_id": "c_204",
+      "start": "2022-08-01",
+      "rent_cold_eur": 820,
+      "kleinreparatur": {
+        "max_per_item_eur": 100,
+        "max_per_year_eur": 400
+      }
+    },
+    {
+      "id": "l_205",
+      "unit_id": "unit_01",
+      "tenant_id": "c_205",
+      "start": "2026-02-15",
+      "rent_cold_eur": 1150,
+      "kleinreparatur": {
+        "max_per_item_eur": 120,
+        "max_per_year_eur": 480
+      }
+    }
+  ],
+  "owner_rules": {
+    "c_101": {
+      "approval_threshold_eur": 500
+    },
+    "c_102": {
+      "approval_threshold_eur": 1000
+    }
+  },
+  "job_catalogue": {
+    "leak_sink_trap": {
+      "trade": "plumbing",
+      "label": "Leaking sink trap or drain",
+      "hours": [
+        0.5,
+        1
+      ],
+      "parts_eur": [
+        10,
+        40
+      ],
+      "kleinreparatur": false
+    },
+    "tap_dripping": {
+      "trade": "plumbing",
+      "label": "Dripping tap (washer/cartridge)",
+      "hours": [
+        0.5,
+        0.5
+      ],
+      "parts_eur": [
+        5,
+        15
+      ],
+      "kleinreparatur": true
+    },
+    "tap_replace": {
+      "trade": "plumbing",
+      "label": "Replace mixer tap",
+      "hours": [
+        1,
+        1.5
+      ],
+      "parts_eur": [
+        60,
+        140
+      ],
+      "kleinreparatur": true
+    },
+    "wc_cistern": {
+      "trade": "plumbing",
+      "label": "WC cistern runs or does not fill",
+      "hours": [
+        0.5,
+        1
+      ],
+      "parts_eur": [
+        15,
+        60
+      ],
+      "kleinreparatur": true
+    },
+    "pipe_leak": {
+      "trade": "plumbing",
+      "label": "Leaking water pipe",
+      "hours": [
+        1,
+        3
+      ],
+      "parts_eur": [
+        20,
+        150
+      ],
+      "kleinreparatur": false
+    },
+    "no_heating_boiler": {
+      "trade": "heating",
+      "label": "No heating: boiler fault",
+      "hours": [
+        1,
+        3
+      ],
+      "parts_eur": [
+        0,
+        450
+      ],
+      "kleinreparatur": false
+    },
+    "radiator_cold": {
+      "trade": "heating",
+      "label": "Single radiator cold (bleed/valve)",
+      "hours": [
+        0.5,
+        1
+      ],
+      "parts_eur": [
+        0,
+        45
+      ],
+      "kleinreparatur": true
+    },
+    "socket_dead": {
+      "trade": "electrical",
+      "label": "Socket or light without power",
+      "hours": [
+        0.5,
+        1.5
+      ],
+      "parts_eur": [
+        5,
+        40
+      ],
+      "kleinreparatur": true
+    },
+    "fuse_trips": {
+      "trade": "electrical",
+      "label": "Fuse or RCD keeps tripping",
+      "hours": [
+        1,
+        2
+      ],
+      "parts_eur": [
+        0,
+        80
+      ],
+      "kleinreparatur": false
+    },
+    "door_lock": {
+      "trade": "carpentry",
+      "label": "Door lock or handle broken",
+      "hours": [
+        0.5,
+        1
+      ],
+      "parts_eur": [
+        15,
+        80
+      ],
+      "kleinreparatur": true
+    },
+    "window_stuck": {
+      "trade": "carpentry",
+      "label": "Window does not close or seal",
+      "hours": [
+        1,
+        2
+      ],
+      "parts_eur": [
+        10,
+        90
+      ],
+      "kleinreparatur": false
+    }
+  },
+  "cases": [],
+  "documents": [],
+  "events": [],
+  "mock_partner_jobs": []
+}

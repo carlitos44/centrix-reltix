@@ -1,0 +1,20 @@
+{
+  "id": "p_hahn",
+  "name": "Tischlerei Hahn",
+  "category": "craftsman",
+  "mode": "deliver",
+  "trades": ["carpentry"],
+  "service_area": { "postcode_prefixes": ["622", "520", "521", "404", "402"] },
+  "triggers": ["case.diagnosed"],
+  "framework_contract": false,
+  "rating": 4.6,
+  "data_needed": {
+    "tenant_name": "to announce the visit",
+    "tenant_phone": "to call before arrival",
+    "address": "to reach the unit",
+    "unit_label": "to find the right door",
+    "diagnosis": "to bring the right parts"
+  },
+  "data_after_acceptance": { "access": "to enter when the tenant is not at home" },
+  "endpoints": { "quote": "/mock/p_hahn/quote", "slots": "/mock/p_hahn/slots", "orders": "/mock/p_hahn/orders" }
+}

@@ -1,0 +1,15 @@
+{
+  "_comment": "Internal data of the fictitious partners (their own price lists). centrix never reads this file: it only talks to partners through their endpoints.",
+  "p_heiz": { "hourly_eur": 68, "callout_eur": 45 },
+  "p_maas_heat": { "hourly_eur": 70, "callout_eur": 52, "windows": [[9, 11], [13, 15]] },
+  "p_aqua": { "hourly_eur": 62, "callout_eur": 39 },
+  "p_elek": { "hourly_eur": 65, "callout_eur": 42 },
+  "p_hahn": { "hourly_eur": 58, "callout_eur": 35 },
+  "p_fibre": {
+    "fibre_postcodes": ["6221", "6222", "52062", "52064", "52066"],
+    "offers": [
+      { "id": "fibre_250", "product": "Fibre 250", "monthly_price_eur": 29.99, "setup_fee_eur": 0, "min_term_months": 12, "description": "250/50 Mbit/s, router included" },
+      { "id": "fibre_500", "product": "Fibre 500", "monthly_price_eur": 34.99, "setup_fee_eur": 0, "min_term_months": 12, "description": "500/100 Mbit/s, router included" }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+CENTRIX VOICE REPAIR DEMO
+
+The current Centrix portal with its Maastricht properties, plus the ElevenLabs
+voice and text repair assistant and the demo contractor scheduler.
+
+Run with Node.js 20.12 or newer. No npm install is required.
+
+1. In the extracted folder, create .env with:
+      ELEVENLABS_API_KEY=your_key_here
+
+2. Run:
+      node scripts/agent.mjs
+
+   This creates or updates the demo agent and its client tools in your ElevenLabs
+   account. Keep .env and data/agent.json local. Enable agent authentication in
+   the ElevenLabs dashboard before using the signed-session demo.
+
+3. Run:
+      node server.mjs
+
+   (It defaults to Maastricht time, TZ=Europe/Amsterdam.)
+
+4. Open http://127.0.0.1:5174 in a microphone-capable browser. Sign in as
+   Alex Rivera (2040), open Get help, and choose Start a call inside Talk to the AI
+   repair assistant. You can also type in that section. Use fictional details.
+
+5. Describe a broken radiator or leaking sink. Choose one of the sample slots
+   offered by the agent. The demo contractor automatically confirms the requested slot if it is available.
+   Log in as Noor (4310) and open Voice-agent repair jobs, then
+   record the work as done. Sign in as Mira (6200) to see the case under Requests.
+   Jordan (1070) has a separate unit and does not see Alex's case in Messages.
+
+The Node server binds to loopback for a local demo. Case records and booking slots
+come from a simulated backend. Use synthetic data, including in voice and text.
+No real contractor is booked or paid. The hosted static Centrix does not run this
+Node server. Public deployment would require server-side authentication and
+authorization, secret storage, and persistent storage.
+
+Verification: node test/flow.test.mjs runs the included booking and contractor
+workflow tests with an isolated temporary database. A live ElevenLabs text test created a radiator case, requested an offered slot,
+and showed contractor confirmation in Mira’s Requests. The browser microphone
+was not exercised.
+
+The legacy simulated repair call, phone dialer and simulated payment controls
+were removed. Payments remains a read-only view of sample records.
+
+Ending a voice or text session clears the on-screen conversation. Case details
+and appointment status remain visible. Case history remains in the local server.
+
+The assistant detects English, Dutch, Spanish, or German from the conversation.
+Case audio uses your browser’s preferred supported language.
+Audio is generated on demand and cached until the server restarts or the update changes.
+
+Before booking, the assistant names the contractor and asks permission to share
+the disclosed fields. The case timeline includes that choice and the repair report
+and invoice when the contractor completes the work.

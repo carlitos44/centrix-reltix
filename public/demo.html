@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Centrix — Live demo</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1F5136">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400..700&display=swap">
+  <link rel="stylesheet" href="centrix.css">
+  <script>
+    // The tenant pane opens signed in as Alex (same tab, so the iframes share this session).
+    try { sessionStorage.setItem('centrix-demo-session-v1', 'alex'); } catch {}
+  </script>
+</head>
+<body class="demo-page">
+<header class="demo-bar">
+  <a class="brand" href="./"><img class="logo-mark" src="logo.svg" alt="" width="36" height="36"><span class="wm">Centrix<b>.</b></span></a>
+  <p>One repair, three screens: the tenant talks to the AI, reltix staff see the case, the craftsman gets the job.</p>
+  <div class="row">
+    <button type="button" id="moveIn">Fire move-in (internet offer)</button>
+    <button type="button" id="reset">Reset demo</button>
+  </div>
+  <p id="demoStatus" role="status"></p>
+</header>
+<main class="panes">
+  <section class="pane"><h2>Tenant <small>Alex Rivera · A-204, Wyck Townhouse, Maastricht</small></h2><iframe id="tenant" src="./" title="Tenant portal" allow="microphone"></iframe></section>
+  <section class="pane"><h2>reltix staff <small>Centrix workspace</small></h2><iframe id="staff" src="centrix.html" title="Centrix staff workspace"></iframe></section>
+  <section class="pane"><h2>Craftsman <small>Partner app · Heizung Müller</small></h2><iframe id="partner" src="partner.html" title="Partner app"></iframe></section>
+</main>
+<script type="module">
+  import { api } from './shared.js';
+  const status = document.getElementById('demoStatus');
+  const reload = () => document.querySelectorAll('iframe').forEach((f) => f.contentWindow.location.reload());
+  let armed = false;
+  document.getElementById('reset').onclick = async (e) => {
+    // Two clicks, so a stray click during the pitch does not wipe the demo.
+    if (!armed) { armed = true; e.target.textContent = 'Click again to reset'; setTimeout(() => { armed = false; e.target.textContent = 'Reset demo'; }, 4000); return; }
+    armed = false; e.target.textContent = 'Reset demo';
+    await api('POST', '/api/reset');
+    try { for (const k of Object.keys(localStorage)) if (k.startsWith('centrix-')) localStorage.removeItem(k); } catch {}
+    status.textContent = 'Demo reset.';
+    reload();
+  };
+  document.getElementById('moveIn').onclick = async () => {
+    try {
+      await api('POST', '/api/trigger', { event: 'tenant.move_in', unit_id: 'unit_4b', data: { move_in_date: '2026-12-01' } });
+      status.textContent = 'tenant.move_in fired: the internet offer is in the tenant portal.';
+    } catch (err) { status.textContent = err.message; }
+  };
+</script>
+</body>
+</html>

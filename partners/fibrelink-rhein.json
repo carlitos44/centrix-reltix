@@ -1,0 +1,20 @@
+{
+  "id": "p_fibre",
+  "name": "Fibrelink Rhein",
+  "category": "internet",
+  "mode": "sell",
+  "triggers": ["tenant.move_in"],
+  "service_area": { "postcode_prefixes": ["622", "520", "521", "404"] },
+  "eligibility_fields": {
+    "postcode": "check fibre availability at the building",
+    "move_in_date": "offer activation on move-in day"
+  },
+  "data_needed": {
+    "tenant_name": "contract holder",
+    "tenant_email": "contract, order confirmation and invoices",
+    "address": "installation address",
+    "unit_label": "which apartment the line is for",
+    "move_in_date": "activation date"
+  },
+  "endpoints": { "quote": "/mock/p_fibre/quote", "orders": "/mock/p_fibre/orders" }
+}

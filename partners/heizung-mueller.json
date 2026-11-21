@@ -1,0 +1,21 @@
+{
+  "id": "p_heiz",
+  "name": "Heizung Müller GmbH",
+  "category": "craftsman",
+  "mode": "deliver",
+  "trades": ["heating", "plumbing"],
+  "service_area": { "postcode_prefixes": ["6221", "520", "521"] },
+  "triggers": ["case.diagnosed"],
+  "framework_contract": true,
+  "rating": 4.7,
+  "data_needed": {
+    "tenant_name": "to announce the visit",
+    "tenant_phone": "to call before arrival",
+    "address": "to reach the unit",
+    "unit_label": "to find the right door",
+    "diagnosis": "to bring the right parts",
+    "installations": "boiler and pipe data to prepare the job"
+  },
+  "data_after_acceptance": { "access": "to enter when the tenant is not at home" },
+  "endpoints": { "quote": "/mock/p_heiz/quote", "slots": "/mock/p_heiz/slots", "orders": "/mock/p_heiz/orders" }
+}

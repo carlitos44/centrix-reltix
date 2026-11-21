@@ -1,0 +1,31 @@
+{
+  "id": "p_maas_heat",
+  "name": "Maas Heat Service (demo)",
+  "category": "craftsman",
+  "mode": "deliver",
+  "trades": [
+    "heating"
+  ],
+  "service_area": {
+    "postcode_prefixes": [
+      "6222"
+    ]
+  },
+  "triggers": [
+    "case.diagnosed"
+  ],
+  "framework_contract": false,
+  "rating": 4.6,
+  "data_needed": {
+    "tenant_name": "identify the appointment",
+    "tenant_phone": "call before arrival",
+    "address": "reach the property",
+    "unit_label": "locate the unit",
+    "diagnosis": "prepare the repair"
+  },
+  "endpoints": {
+    "quote": "/mock/p_maas_heat/quote",
+    "slots": "/mock/p_maas_heat/slots",
+    "orders": "/mock/p_maas_heat/orders"
+  }
+}

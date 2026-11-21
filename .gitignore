@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+data/db.json
+data/agent.json
+data/recording-db.json
+PLAN.md
+.claude/
+.impeccable/
+.playwright-mcp/
+*.log

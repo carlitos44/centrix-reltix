@@ -1,0 +1,73 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Centrix — Your home, looked after</title>
+<link rel="icon" href="logo.svg" type="image/svg+xml"><meta name="theme-color" content="#1F5136"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400..700&display=swap"><link rel="stylesheet" href="centrix.css?v=merge-1"></head><body data-resident-view="guide">
+<header><div class="brand"><img class="logo-mark" src="logo.svg" alt="" width="36" height="36"><span class="wm">Centrix<b>.</b></span></div><div class="header-tools"><nav id="resident-nav" aria-label="Main" hidden><button data-view="guide" aria-pressed="true">Get help</button><button data-view="property" aria-pressed="false">Property guide</button><button data-view="drafts" aria-pressed="false">Previous requests</button><button data-view="inbox" aria-pressed="false">Messages</button><button data-view="team" aria-pressed="false">Building team</button><button data-view="updates" aria-pressed="false">Notifications <span id="update-count" hidden></span></button><button data-view="fees" aria-pressed="false">Payments</button></nav><div id="account-controls" class="account-controls" hidden><span id="active-account"><strong id="account-name"></strong><small id="account-context"></small></span><button id="open-profile" type="button" aria-label="My profile" aria-haspopup="dialog" aria-controls="resident-profile" title="My profile" hidden><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20v-1a7 7 0 0 1 14 0v1" stroke-linecap="round"/></svg></button><button id="demo-signout" type="button">Sign out</button></div></div></header>
+<main id="account-gate" aria-labelledby="account-title"><section class="panel account-panel"><h1 id="account-title">Welcome home</h1><p class="note">Sign in to report a repair, see your payments and reach your building team.</p><form id="demo-login"><label for="account-id">Account</label><select id="account-id" required><option value="">Choose your account</option><option value="alex">Alex Rivera · Unit A-204</option><option value="jordan">Jordan Lee · Unit B-107</option><option value="mira">Mira van Dijk · Building manager</option><option value="noor">Noor Bakker · Heating contractor</option></select><label for="account-pin">PIN</label><input type="password" id="account-pin" inputmode="numeric" autocomplete="off" maxlength="4" required><button type="submit" class="primary">Sign in</button><p id="account-status" role="status"></p></form><details class="demo-help"><summary>Demo accounts</summary><ul><li>Alex Rivera, tenant: PIN 2040</li><li>Jordan Lee, tenant: PIN 1070</li><li>Mira van Dijk, building manager: PIN 6200</li><li>Noor Bakker, heating contractor: PIN 4310</li></ul></details></section></main><main id="resident-portal" hidden><div class="hero"><div class="intro"><h1>Something broken? <em>Just say it.</em></h1><p>Tell the repair assistant what happened, in English, Nederlands, Español or Deutsch. It finds the right craftsman, asks before sharing your details and books a time.</p><a class="assist-cta" href="#assistant"><span class="assist-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><span><strong>Talk to the repair assistant</strong><small>By voice or chat, in about two minutes</small></span></a></div><figure class="property-photo"><img id="property-image" alt="" fetchpriority="high"><figcaption><span data-property-name></span><small id="property-caption"></small></figcaption></figure></div>
+<div class="resident-shortcuts" aria-label="Building services"><button type="button" data-view="fees"><strong>Payments</strong><small>Charges, due dates and transaction history</small></button><button type="button" data-view="updates"><strong>Notifications</strong><small>Reminders, maintenance and community news</small></button></div><section class="panel" id="guide">
+<section id="assistant" aria-labelledby="assistant-title">
+  <div class="assistant-heading">
+    <div>
+      <h2 id="assistant-title">What's wrong at home?</h2>
+      <p class="ai-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg><span>You're talking to an AI assistant. It already knows your apartment, finds the right craftsman and books a time with you. Speak English, Nederlands, Español or Deutsch.</span></p>
+    </div>
+    <button type="button" id="call">Start a call</button>
+  </div>
+  <p id="callStatus" class="assistant-status" role="status"></p>
+  <div id="log" class="chat-log" aria-live="polite"></div>
+  <form id="chat" class="chat-form">
+    <label class="sr-only" for="text">Message</label>
+    <input id="text" placeholder="Or type what needs repairing…" autocomplete="off">
+    <button type="submit" class="primary">Send</button>
+  </form>
+  <p class="note">Track appointments and repairs in <button type="button" class="request-history-link" data-view="drafts">Previous requests</button>.</p>
+</section>
+<form id="flow" novalidate></form>
+</section>
+<section class="panel" id="property" hidden>
+  <h2>Property guide</h2>
+  <label for="lookup">Search your property</label>
+  <input id="lookup" type="search" placeholder="Try heating, keys, meters, or parking">
+  <p id="recordCount" role="status" class="subtle"></p>
+  <div id="records" class="guide-records"></div>
+  <button id="browse-property-records" type="button" aria-controls="records" aria-expanded="false">Show all property records</button>
+  <details class="utility-section"><summary>Utilities and suppliers</summary><p class="note">Example providers for <span data-property-name></span>, in Maastricht. Check your bill or address before contacting a provider.</p><div class="records utilities"><article class="record"><p class="kicker">Drinking water</p><h3>WML</h3><p>For a water supply interruption or work in the area, check WML’s outage information. For a leak inside your home, contact building management.</p><a href="https://www.wml.nl/home" target="_blank" rel="noopener">WML service and outages</a></article><article class="record"><p class="kicker">Electricity network</p><h3>Enexis Netbeheer</h3><p>For a neighborhood power outage or a network connection issue, check the network operator. For a fault inside your home, contact building management.</p><a href="https://www.enexis.nl/storingen-en-onderhoud/hoe-lost-enexis-gas-en-stroomstoringen-op" target="_blank" rel="noopener">Enexis outage guidance</a></article><article class="record" id="contract-provider"></article></div><p class="subtle">For a shared heating charge from the building, use Payments or contact the building manager. Your personal supplier handles only its own bills and contract.</p></details>
+</section>
+<section class="panel" id="drafts" hidden>
+  <h2 id="request-history-title" tabindex="-1">Previous requests</h2>
+  <p class="note">Track your appointments, completed requests, and unsent drafts.</p>
+  <div id="submitted-requests"></div>
+  <section aria-labelledby="request-drafts-title">
+    <h3 id="request-drafts-title">Drafts</h3>
+    <div id="draftList"></div>
+  </section>
+</section>
+<section class="panel" id="community" hidden aria-labelledby="community-title"><div id="community-content"></div></section>
+<section class="panel" id="inbox" hidden aria-labelledby="inbox-title"><div id="inbox-content"></div></section><section class="panel" id="updates" hidden aria-labelledby="updates-title"><div id="updates-content"></div></section><section class="panel" id="fees" hidden aria-labelledby="fees-title"><div id="fees-content"></div></section><section class="team" id="team" hidden aria-labelledby="teamTitle"><div><h2 id="teamTitle" tabindex="-1">Your building team</h2><p class="note">The people who look after <span data-property-name></span>.</p></div><div class="team-cards">
+<article><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;crop=faces&amp;w=240&amp;h=240&amp;q=85" alt="" width="84" height="84" loading="lazy"><div><h3>Daniel Mercer</h3><strong>Landlord · Lease and rent</strong><p>Contact Daniel about lease changes, rent, notices, and deposits.</p><p><b>How to reach him:</b> Use the landlord contact listed in your lease. Prepare a summary first if you need one.</p><dl class="contact-fields"><dt>Email</dt><dd data-property-email="landlord"></dd><dt>Phone</dt><dd>+31 43 555 0101</dd><dt>Contact reference</dt><dd>LC-OWNER · Lease and billing</dd><dt>Office address</dt><dd data-property-address="Owner correspondence desk"></dd></dl><button type="button" data-team-request="owner">Prepare landlord request</button></div></article>
+<article><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;crop=faces&amp;w=240&amp;h=240&amp;q=85" alt="" width="84" height="84" loading="lazy"><div><h3>Mira van Dijk</h3><strong>Building manager · Day-to-day support</strong><p>Contact Mira about repairs, keys, inspections, or moving arrangements.</p><p><b>How to reach her:</b> Use Building Management in your resident portal. For urgent damage, use the maintenance number in your building documents.</p><dl class="contact-fields"><dt>Email</dt><dd data-property-email="management"></dd><dt>Phone</dt><dd>+31 43 555 0110</dd><dt>Contact reference</dt><dd>LC-MGMT · Resident support</dd><dt>Office address</dt><dd data-property-address="Ground floor reception"></dd></dl><button type="button" data-team-request="repair">Prepare repair request</button></div></article>
+</div></section></main>
+<main id="manager-portal" hidden aria-labelledby="manager-title"><div class="manager-hero"><h1 id="manager-title">Good to see you, Mira</h1><p>Tenant messages, requests and payments for your buildings.</p><a class="assist-cta" href="centrix.html"><span><strong>Open repair operations</strong><small>Live cases, approvals and partner events</small></span></a></div><nav class="manager-nav" aria-label="Manager tools"><button type="button" data-manager-tab="requests" aria-pressed="true">Requests</button><button type="button" data-manager-tab="messages" aria-pressed="false">Messages</button><button type="button" data-manager-tab="payments" aria-pressed="false">Payments</button></nav><div class="panel" id="manager-content"></div>
+<p id="manager-status" role="status"></p></main>
+<main id="contractor-portal" hidden aria-labelledby="contractor-title">
+  <div class="manager-hero"><h1 id="contractor-title">Good to see you, Noor</h1><p>Jobs booked by the Centrix repair assistant. Confirm the visit, report the repair and send your invoice.</p><a class="assist-cta" href="partner.html"><span><strong>Open repair jobs</strong><small>Visits, repair reports and invoices</small></span></a></div>
+</main>
+<dialog id="resident-profile" aria-labelledby="profile-title">
+  <div class="profile-heading">
+    <h2 id="profile-title">My profile</h2>
+    <form method="dialog"><button type="submit" autofocus>Close</button></form>
+  </div>
+  <h3>Residency</h3>
+  <dl class="profile-details">
+    <div><dt>Property</dt><dd data-profile-field="property"></dd></div>
+    <div><dt>Unit</dt><dd data-profile-field="unit"></dd></div>
+    <div><dt>Move-in date</dt><dd data-profile-field="moveIn"></dd></div>
+    <div><dt>Time living here</dt><dd data-profile-field="tenure"></dd></div>
+  </dl>
+  <h3>Personal and contact details</h3>
+  <dl class="profile-details">
+    <div><dt>Full name</dt><dd data-profile-field="name"></dd></div>
+    <div><dt>Date of birth</dt><dd data-profile-field="birthday"></dd></div>
+    <div><dt>Email</dt><dd data-profile-field="email"></dd></div>
+    <div><dt>Phone</dt><dd data-profile-field="phone"></dd></div>
+  </dl>
+</dialog>
+<footer>Centrix by reltix · Maastricht · <a id="property-credit" href="credits.html">Photo credits</a></footer><script src="account.js?v=partner-1"></script><script src="questionnaire.js?v=1"></script><script src="app.js?v=request-history-1"></script><script src="community.js?v=hidden-entry-1"></script><script src="building.js?v=voice-only-1"></script><script src="utilities.js?v=1"></script><script src="manager.js?v=separate-messages-1"></script><script src="partner.js?v=voice-only-1"></script><script type="module" src="bridge.js?v=request-history-1"></script></body></html>

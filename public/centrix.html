@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Centrix — Repair cases</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1F5136">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400..700&display=swap">
+  <link rel="stylesheet" href="centrix.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="./"><img class="logo-mark" src="logo.svg" alt="" width="36" height="36"><span class="wm">Centrix<b>.</b></span></a>
+  <nav class="staff-tools" aria-label="Main">
+    <button type="button" aria-pressed="true">Cases</button>
+    <button type="button" id="reset">Reset demo</button>
+  </nav>
+</header>
+<main>
+  <div class="page-title"><h1>Repair cases</h1><p class="subtle">reltix property management · Aachen</p></div>
+  <div class="workspace">
+    <div>
+      <section class="panel">
+        <h2>All cases</h2>
+        <div id="cases" class="case-list"></div>
+      </section>
+      <section class="panel">
+        <h3>Lease events</h3>
+        <p class="subtle">These fire from the lease and onboarding records. You can also send one by hand.</p>
+        <button type="button" id="moveIn">Move-in: Alex Rivera, 1 Dec</button>
+        <p id="eventStatus" class="subtle" role="status"></p>
+      </section>
+    </div>
+    <section class="panel detail" id="detail"><p class="note">Select a case.</p></section>
+  </div>
+</main>
+<footer>Centrix by reltix · Aachen</footer>
+<script type="module" src="centrix.js"></script>
+</body>
+</html>
